@@ -1,0 +1,202 @@
+<%- layout("boilerplate/boilerplate.ejs") %>
+
+<style>
+  h1 {
+    margin: 1rem 2rem;
+  }
+  .form {
+    margin: 1rem 2rem;
+    border: 1.5px solid rgba(0, 0, 0, 0.8);
+    padding: 1rem 3rem;
+    border-radius: 10px;
+  }
+  .create {
+    display: flex;
+    flex-direction: column;
+  }
+  input,
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid black;
+  }
+  .success .input {
+    border: #28a745;
+  }
+  .error .input {
+    border: red;
+  }
+  button {
+    padding: 10px 40px;
+    background-color: #28a745;
+    color: white;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin-top: 1rem;
+  }
+  .home {
+    height: 40px;
+  }
+  label {
+    font-size: 1.2rem;
+  }
+  .form-control {
+    position: relative;
+    padding: 1rem;
+  }
+
+  .form-control i {
+    position: absolute;
+    top: 50px;
+    right: 25px;
+    display: none;
+  }
+
+  .form-control.success .fa-check {
+    color: #2ecc71;
+    display: block;
+  }
+  .form-control.error .fa-circle-exclamation {
+    color: #e74e3c;
+    display: block;
+  }
+  .form-control small {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    left: 1rem;
+  }
+  .form-control.error small {
+    color: #e74e3c;
+    display: block;
+  }
+  .form-control.success .input {
+    outline: 1.5px solid #2ecc71;
+  }
+  .form-control.error .input {
+    outline: 1.5px solid #e74e3c;
+  }
+</style>
+
+<div class="form-container">
+  <h1>
+    Airbnb your home
+    <img
+      class="home"
+      src="https://cdn-icons-png.flaticon.com/128/619/619153.png"
+      alt=""
+    />
+  </h1>
+  <div class="form">
+    <form
+      id="form"
+      action="/listing"
+      method="post"
+      class="create"
+      enctype="multipart/form-data"
+      novalidate
+    >
+      <div class="form-control">
+        <label for="title">Title:</label>
+        <input
+          class="input"
+          type="text"
+          name="listing[title]"
+          placeholder="Title"
+          id="title"
+        />
+        <i class="fa-solid fa-check"></i>
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <small>Error Message</small>
+      </div>
+
+      <div class="form-control">
+        <label for="description">Description: </label>
+        <textarea
+          class="input"
+          id="description"
+          cols="5"
+          rows="5"
+          type="text"
+          name="listing[description]"
+          placeholder="Description"
+        ></textarea>
+
+        <i class="fa-solid fa-check"></i>
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <small>Error Message</small>
+      </div>
+
+      <!-- <div class="form-control">
+        <label for="image">Image URL: </label>
+        <textarea
+          class="input"
+          id="image"
+          type="text"
+          name="listing[image]"
+          placeholder="Image url"
+        ></textarea>
+        <i class="fa-solid fa-check"></i>
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <small>Error Message</small>
+      </div> -->
+      <div class="form-control">
+        <label for="imageUpload">Upload Image : </label>
+        <input
+          class="input"
+          id="image"
+          type="file"
+          name="listing[image]"
+        ></input>
+        <i class="fa-solid fa-check"></i>
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <small>Error Message</small>
+      </div>
+
+      <div class="form-control">
+        <label for="country">Country:</label>
+        <input
+          class="input"
+          id="country"
+          type="text"
+          name="listing[country]"
+          placeholder="country"
+        />
+        <i class="fa-solid fa-check"></i>
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <small>Error Message</small>
+      </div>
+      <div class="form-control">
+        <label for="location">Location:</label>
+        <input
+          class="input"
+          id="location"
+          type="text"
+          name="listing[location]"
+          placeholder="Location"
+        />
+        <i class="fa-solid fa-check"></i>
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <small>Error Message</small>
+      </div>
+
+      <div class="form-control">
+        <label for="price">Price:</label>
+        <input
+          class="input"
+          required
+          id="price"
+          type="text"
+          name="listing[price]"
+          placeholder="price"
+        />
+        <i class="fa-solid fa-check"></i>
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <small>Error Message</small>
+      </div>
+      <button>Submit</button>
+    </form>
+  </div>
+</div>

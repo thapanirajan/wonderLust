@@ -1,0 +1,92 @@
+<%- layout('/boilerplate/boilerplate.ejs') %>
+<style>
+  h1 {
+    margin: 1rem 2rem;
+  }
+  .form {
+    margin: 1rem 2rem;
+    border: 1.5px solid rgba(0, 0, 0, 0.8);
+    padding: 3rem;
+    border-radius: 10px;
+  }
+  .create {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  input,
+  textarea {
+    width: 100%;
+    padding: 10px;
+  }
+  button {
+    padding: 10px 40px;
+    background-color: #28a745;
+    color: white;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+  }
+  .home {
+    height: 40px;
+  }
+  label {
+    font-size: 1.2rem;
+  }
+</style>
+<div class="container">
+  <div class="form-container">
+    <h1>Edit Form data <i class="fa-solid fa-pen-nib"></i></h1>
+    <div class="form">
+      <form
+        action="/listing/<%=listing.id%>?_method=patch"
+        method="post"
+        class="create"
+        enctype="multipart/form-data"
+      >
+        <label for="title"
+          >Title:
+          <input type="text" name="listing[title]" value="<%= listing.title%>" required
+        /></label>
+
+        <label for="description"
+          >Description:
+            <textarea cols="5" rows="5" type="text" name="listing[description]" required>
+<%= listing.description%></textarea
+          >
+        </label>
+        <div>
+            <img src="<%= originalImageUrl %>" alt="">
+        </div>
+        <label for="image"
+          >Upload new image :
+          <input type="file" name="listing[image]"></input>
+        </label>
+
+        <label for="country"
+          >Country:
+          <input
+            type="text"
+            name="listing[country]"
+            value="<%= listing.country%>"
+            required
+        /></label>
+        <label for="location"
+          >Location:
+          <input
+            type="text"
+            name="listing[location]"
+            value="<%= listing.location%>"
+            required
+        /></label>
+
+        <label for="price"
+          >Price:
+          <input type="text" name="listing[price]" value="<%= listing.price%>" required
+        /></label>
+        <button>Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

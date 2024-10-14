@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Grey+Qo&family=Satisfy&family=Sedan:ital@0;1&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Sedan", serif;
+}
+
+.container {
+  margin: 1rem;
+}
+nav {
+  display: flex;
+  font-size: 1.4rem;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 11;
+  border-bottom: 0.2px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.1);
+}
+nav a {
+  margin-right: 1rem;
+  text-decoration: none;
+  color: black;
+  font-size: 1.2rem;
+  font-family: "Sedan", serif;
+}
+.ri-compass-line {
+  color: red;
+  font-size: 2.5rem;
+}
+
+footer {
+  display: flex;
+  background-color: rgba(204, 204, 204, 0.5);
+  justify-content: center;
+  padding: 50px 10px;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.social-links {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+}
+
+.social-links li {
+  display: inline;
+  margin: 0 10px;
+}
+
+.social-links a {
+  text-decoration: none;
+  color: black;
+}
+
+.airbnb {
+  padding: 10px 1.2rem;
+  cursor: pointer;
+  &:hover {
+    background-color: rgba(204, 204, 204, 0.3);
+    border-radius: 20px;
+  }
+}
+
+.right-nav{
+  margin-left: 50rem;
+}
+
+.del {
+  background-color: #dc3545;
+  color: white;
+  cursor: pointer;
+}
+
+.alert-success{
+  background-color: #d4edda;
+  color: #155724;
+  padding: 25px;
+  width: 40%;
+  margin: 10px auto;
+  border-radius: 5px;
+  font-size: 1.2rem;
+}
+
+.alert-error{
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 25px;
+  width: 40%;
+  margin: 10px auto;
+  border-radius: 5px;
+  font-size: 1.2rem;
+}
+
+/*  map  */
+#map{
+  height: 500px;
+  width: 100%;
+  border: 1px solid;
+  border-radius: 15px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}

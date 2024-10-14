@@ -1,0 +1,30 @@
+<style>
+  #alert {
+    display: flex;
+    justify-content: space-between;
+  }
+  #cross {
+    cursor: pointer;
+    color: black;
+  }
+</style>
+<% if (success && success.length) {%>
+<div id="alert" class="alert-success">
+  <div><%= success %></div>
+  <div id="cross">❌</div>
+</div>
+<% } %> <% if (error && error.length) {%>
+<div id="alert" class="alert-error">
+  <div><%= error %></div>
+  <div id="cross">❌</div>
+</div>
+<% } %>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const cross = document.getElementById("cross");
+    const alert = document.getElementById("alert");
+    cross.addEventListener("click", () => {
+      alert.style.display = "none";
+    });
+  });
+</script>
