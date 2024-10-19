@@ -31,12 +31,20 @@
   </head>
   <body>
     <nav>
-      <a class="airbnb" href="/listing"><i class="ri-compass-line"></i></a>
-      <a class="airbnb" href="/listing">All Listing</a>
-      <a class="airbnb" href="/listing/create">Airbnb your home</a>
+      <div class="left-nav">
+        <a class="airbnb" href="/listing"><i class="ri-compass-line"></i></a>
+        <a class="airbnb" href="/listing">All Listing</a>
+        <a class="airbnb" href="/listing/create">Airbnb your home</a>
+      </div>
+      <div class="search"></div>
       <div class="right-nav">
         <% if (currentUser) {%>
-        <a class="airbnb" href="/logout">LogOut</a>
+        <div class="logout-user">
+          <p id="user"><%= currentUser.username %></p>
+          <div id="dropdown">
+            <a class="airbnb" id="logout" href="/logout">Log Out</a>
+          </div>
+        </div>
         <% } else{ %>
         <a class="airbnb" href="/login">Login</a>
         <a class="airbnb" href="/signup">Signup</a>
@@ -65,3 +73,30 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.0/dist/sweetalert2.all.min.js"></script>
   </body>
 </html>
+
+<script>
+  const userElement = document.getElementById("user");
+  const dropdownElement = document.getElementById("dropdown");
+
+  userElement.addEventListener("click", () => {
+    // Toggle the dropdown visibility
+    if (
+      dropdownElement.style.display === "none" ||
+      dropdownElement.style.display === ""
+    ) {
+      dropdownElement.style.display = "block";
+    } else {
+      dropdownElement.style.display = "none";
+    }
+  });
+
+  // Hide the dropdown if the user clicks outside of it
+  document.addEventListener("click", (event) => {
+    if (
+      !userElement.contains(event.target) &&
+      !dropdownElement.contains(event.target)
+    ) {
+      dropdownElement.style.display = "none";
+    }
+  });
+</script>

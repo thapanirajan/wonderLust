@@ -12,16 +12,62 @@
 }
 nav {
   display: flex;
+  justify-content: space-between;
   font-size: 1.4rem;
   align-items: center;
   gap: 1.2rem;
-  padding: 1rem;
+  padding: 2rem 1rem;
   position: sticky;
   top: 0;
   background-color: white;
   z-index: 11;
   border-bottom: 0.2px solid rgba(0, 0, 0, 0.2);
   box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+.logout-user {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+#user {
+  cursor: pointer;
+  /* border: 1px solid #ccc; */
+  padding: 0 15px;
+  border-radius: 5px;
+  text-shadow: 2px 2px 3px #0c0909;
+}
+
+#dropdown {
+  display: none;
+  position: absolute;
+  width: 120px;
+  top: 150%;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-size: 0.7rem;
+  border-radius: 5px;
+  a{
+    font-size: 1rem;
+  }
+}
+#dropdown a:hover {
+  background-color: transparent;
+  color: inherit;
+}
+
+#logout {
+  display: block;
+  padding: 8px 12px;
+  text-decoration: none;
+  color: black;
+}
+
+.right-nav {
+  margin-right: 5rem;
 }
 nav a {
   margin-right: 1rem;
@@ -69,17 +115,20 @@ footer {
   }
 }
 
-.right-nav{
+.right-nav {
   margin-left: 50rem;
 }
-
+.left-nav{
+  display: flex;
+  align-items: center;
+}
 .del {
   background-color: #dc3545;
   color: white;
   cursor: pointer;
 }
 
-.alert-success{
+.alert-success {
   background-color: #d4edda;
   color: #155724;
   padding: 25px;
@@ -89,7 +138,7 @@ footer {
   font-size: 1.2rem;
 }
 
-.alert-error{
+.alert-error {
   background-color: #f8d7da;
   color: #721c24;
   padding: 25px;
@@ -100,7 +149,7 @@ footer {
 }
 
 /*  map  */
-#map{
+#map {
   height: 500px;
   width: 100%;
   border: 1px solid;

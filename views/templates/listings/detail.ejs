@@ -291,13 +291,19 @@
                           <% } %>
                           
                             </div>
-                        <form
-                            action="/listing/<%= detail.id%>/reviews/<%=review.id%>?_method=Delete"
-                            method="post"
-                            onsubmit="return confirm('Are you sure you want to delete??')">
-                            <button type="submit"
-                                class="del rdel">Delete</button>
-                        </form>
+                            
+                            
+                        <% if(currentUser){ %>
+                          <% if (currentUser._id.equals(review.author._id)) { %>
+                          <form
+                              action="/listing/<%= detail.id%>/reviews/<%=review.id%>?_method=Delete"
+                              method="post"
+                              onsubmit="return confirm('Are you sure you want to delete??')">
+                              <button type="submit"
+                                  class="del rdel">Delete</button>
+                          </form>
+                          <% } %>
+                        <%}%>
                     </div>
                     <%}%>
                     <%} %>
@@ -306,6 +312,7 @@
 
         </div>
     </div>
+    <hr>
     <h1>Where you'll be</h1>
     <div id="map"></div>
 
