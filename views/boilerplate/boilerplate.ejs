@@ -1,77 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WonderLust</title>
-    <link rel="stylesheet" href="/CSS/boilerplate.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css"
-      integrity="sha512-MqL4+Io386IOPMKKyplKII0pVW5e+kb+PI/I3N87G3fHIfrgNNsRpzIXEi+0MQC0sR9xZNqZqCYVcC61fL5+Vg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.0/dist/sweetalert2.min.css"
-    />
-    <link
-      href="https://api.mapbox.com/mapbox-gl-js/v3.7.0/mapbox-gl.css"
-      rel="stylesheet"
-    />
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.7.0/mapbox-gl.js"></script>
-  </head>
-  <body>
-    <nav>
-      <div class="left-nav">
-        <a class="airbnb" href="/listing"><i class="ri-compass-line"></i></a>
-        <a class="airbnb" href="/listing">All Listing</a>
-        <a class="airbnb" href="/listing/create">Airbnb your home</a>
-      </div>
-      <div class="search"></div>
-      <div class="right-nav">
-        <% if (currentUser) {%>
-        <div class="logout-user">
-          <p id="user"><%= currentUser.username %></p>
-          <div id="dropdown">
-            <a class="airbnb" id="logout" href="/logout">Log Out</a>
-          </div>
-        </div>
-        <% } else{ %>
-        <a class="airbnb" href="/login">Login</a>
-        <a class="airbnb" href="/signup">Signup</a>
-        <% } %>
-      </div>
-    </nav>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>WonderLust</title>
+        <link rel="stylesheet" href="/CSS/boilerplate.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css"
+            integrity="sha512-MqL4+Io386IOPMKKyplKII0pVW5e+kb+PI/I3N87G3fHIfrgNNsRpzIXEi+0MQC0sR9xZNqZqCYVcC61fL5+Vg=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+            integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.0/dist/sweetalert2.min.css" />
+        <link
+            href="https://api.mapbox.com/mapbox-gl-js/v3.7.0/mapbox-gl.css"
+            rel="stylesheet" />
+        <script
+            src="https://api.mapbox.com/mapbox-gl-js/v3.7.0/mapbox-gl.js"></script>
+    </head>
+    <body>
+        <nav>
+            <div class="left-nav">
+                <a class="airbnb" href="/listing"><i
+                        class="ri-compass-line"></i></a>
+                <a class="airbnb" href="/listing">All Listing</a>
+                <a class="airbnb" href="/listing/create">Airbnb your home</a>
+            </div>
+            <div class="search"></div>
+            <div class="right-nav">
+                <% if (currentUser) {%>
+                <div class="logout-user">
+                    <p id="user"><%= currentUser.username %></p>
+                    <div id="dropdown">
+                        <a class="airbnb" id="logout" href="/logout">Log Out</a>
+                    </div>
+                </div>
+                <% } else{ %>
+                <a class="airbnb" href="/login">Login</a>
+                <a class="airbnb" href="/signup">Signup</a>
+                <% } %>
+            </div>
+        </nav>
 
-    <div class="container">
-      <%- include('../templates/listings/flash.ejs') %><%- body %>
-    </div>
-    <footer>
-      <div class="footer-content">
-        <p>&copy; Airbnb</p>
-        <ul class="social-links">
-          <li>
-            <a href="https://www.facebook.com" target="_blank">Facebook</a>
-          </li>
-          <li><a href="https://www.twitter.com" target="_blank">Twitter</a></li>
-          <li>
-            <a href="https://www.instagram.com" target="_blank">Instagram</a>
-          </li>
-        </ul>
-      </div>
-    </footer>
-    <script src="/javascript/formvalidate.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.0/dist/sweetalert2.all.min.js"></script>
-  </body>
+        <div class="container">
+            <%- include('../templates/listings/flash.ejs') %><%- body %>
+        </div>
+        <footer>
+            <div class="footer-content">
+                <p>&copy; Airbnb</p>
+                <ul class="social-links">
+                    <li>
+                        <a href="https://www.facebook.com"
+                            target="_blank">Facebook</a>
+                    </li>
+                    <li><a href="https://www.twitter.com"
+                            target="_blank">Twitter</a></li>
+                    <li>
+                        <a href="https://www.instagram.com"
+                            target="_blank">Instagram</a>
+                    </li>
+                </ul>
+            </div>
+        </footer>
+        <script src="/javascript/formvalidate.js"></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.0/dist/sweetalert2.all.min.js"></script>
+    </body>
 </html>
 
 <script>

@@ -85,4 +85,4 @@ app.use((err, req, res, next) => {
 });
 
 // Starting the server on port 5000
-app.listen(5000);
+app.listen(process.env.PORT);

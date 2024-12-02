@@ -2,7 +2,8 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const Review = require("./reviews.model.js");
 
-mongoose.connect(process.env.ATLASDB);
+const url = "mongodb://127.0.0.1:27017/listing";
+mongoose.connect(url);
 
 
 const wondereSchema = new Schema({

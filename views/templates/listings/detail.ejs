@@ -222,7 +222,8 @@
                 <div><strong>Price: </strong> <span>
                         $<%=detail.price %>/night
                     </span></div>
-                <% if(currentUser && currentUser._id.equals(detail.owner._id)) { %>
+                <% if(currentUser && currentUser._id.equals(detail.owner._id)) {
+                %>
                 <div class="action-buttons">
                     <form action="/listing/edit/<%= detail.id%>" method="get">
                         <button class="edit button">Edit</button>
@@ -240,7 +241,7 @@
 </div>
 <div class="review-section">
     <% if(currentUser) { %>
-        <hr>
+    <hr>
     <div class="give-review">
         <h1 class="review-title">Leave a review</h1>
         <form action="/listing/<%= detail.id%>/reviews" method="post"
@@ -248,15 +249,15 @@
             <label for="rating">Rating: </label>
             <div class="rating-select">
                 <select id="rating" name="review[rating]">
-                  <option value>Select Rating</option>
-                  <option value="1">1 Star</option>
-                  <option value="2">2 Star</option>
-                  <option value="3">3 Star</option>
-                  <option value="4">4 Star</option>
-                  <option value="5">5 Star</option>
+                    <option value>Select Rating</option>
+                    <option value="1">1 Star</option>
+                    <option value="2">2 Star</option>
+                    <option value="3">3 Star</option>
+                    <option value="4">4 Star</option>
+                    <option value="5">5 Star</option>
                 </select>
-              </div>
-            
+            </div>
+
             <label for="comment">Your review:</label>
             <textarea name="review[comment]" id="reviewText"
                 placeholder="Write your review here"></textarea>
@@ -268,8 +269,9 @@
     <div class="all-reviews">
         <div id="reviewContainer">
             <div>
-                
-                <span class="rating">&#9733; Average Rating: <%= averageRating %>/5
+
+                <span class="rating">&#9733; Average Rating: <%= averageRating
+                    %>/5
                 </span>
             </div>
             <br>
@@ -282,27 +284,27 @@
                     <% for(review of detail.reviews) { %>
                     <div class="RevCard">
                         <div class="username"><strong
-                                style="font-size: 1.5rem;">@<%= review.author.username %></strong></div>
+                                style="font-size: 1.5rem;">@<%=
+                                review.author.username %></strong></div>
                         <div class="comment"> <strong>comment:</strong> <%=
                             review.comment %> </div>
-                        <div class="rating"> <strong>Rating:</strong> 
-                        <% for(let i = 1; i <= review.rating; i++) { %>
+                        <div class="rating"> <strong>Rating:</strong>
+                            <% for(let i = 1; i <= review.rating; i++) { %>
                             <span class="active">&#x2605;</span>
-                          <% } %>
-                          
-                            </div>
-                            
-                            
+                            <% } %>
+
+                        </div>
+
                         <% if(currentUser){ %>
-                          <% if (currentUser._id.equals(review.author._id)) { %>
-                          <form
-                              action="/listing/<%= detail.id%>/reviews/<%=review.id%>?_method=Delete"
-                              method="post"
-                              onsubmit="return confirm('Are you sure you want to delete??')">
-                              <button type="submit"
-                                  class="del rdel">Delete</button>
-                          </form>
-                          <% } %>
+                        <% if (currentUser._id.equals(review.author._id)) { %>
+                        <form
+                            action="/listing/<%= detail.id%>/reviews/<%=review.id%>?_method=Delete"
+                            method="post"
+                            onsubmit="return confirm('Are you sure you want to delete??')">
+                            <button type="submit"
+                                class="del rdel">Delete</button>
+                        </form>
+                        <% } %>
                         <%}%>
                     </div>
                     <%}%>
